@@ -1,5 +1,15 @@
 import "./App.css";
 
+const NavigationBar = () => {
+  return (
+    <div className="navbar">
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+    </div>
+  );
+};
+
 const Profile = () => {
   return (
     <div>
@@ -56,6 +66,7 @@ const Profile = () => {
 const App = () => {
   return (
     <>
+      <NavigationBar />
       <Profile />
     </>
   );

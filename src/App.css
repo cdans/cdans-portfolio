@@ -1,7 +1,6 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -37,4 +36,24 @@ body {
     background-position: left 30% bottom 22px, left -1632px bottom 0px,
       left -1016px bottom 22px, left -512px bottom 0px;
   }
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: #0000aa;
+  color: #ffffff;
+  padding: 10px 0;
+  font-family: "Press Start 2P";
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: #ff0000;
 }
