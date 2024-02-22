@@ -31,9 +31,7 @@ const Summary = () => {
     <div className="container">
       <div id="summary">
         <div className="header">
-          <h1 className="header-title">
-            CHRISTOPH DANSARD<span className="tm">TM</span>
-          </h1>
+          <h1 className="header-title">CHRISTOPH DANSARD</h1>
         </div>
         <p>
           I am a passionate and driven student at the Technical University

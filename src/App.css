@@ -5,8 +5,7 @@
 }
 
 html,
-body,
-.background {
+body {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -17,15 +16,13 @@ body,
     url("./assets/bushes.png"), url("./assets/back.png");
   background-color: #f8e0b0;
   background-repeat: no-repeat, repeat-x, repeat-x, repeat-x;
-  background-position: left 30% bottom 22px, left 0px bottom 0px,
-    left 0px bottom 22px, left 0px bottom 0px;
-  background-attachment: fixed;
+  background-position: left 30% bottom 22px, left 0px bottom 0px;
   animation: back 15s infinite linear;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  bottom: 0;
+  right: 0;
   z-index: -1;
 }
 

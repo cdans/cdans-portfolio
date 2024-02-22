@@ -15,11 +15,6 @@
   font-size: 4em; /* Adjust size as needed */
 }
 
-.tm {
-  font-size: 0.3em; /* Smaller font size for trademark symbol */
-  vertical-align: super;
-}
-
 .profile-box {
   background-color: #de5e24;
   color: #e0dab8;
