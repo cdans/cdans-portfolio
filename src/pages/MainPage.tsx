@@ -7,10 +7,16 @@ const LINKS = [
 ];
 
 const NavigationBar = () => {
+  const handleClick = (id: string) => (event: React.MouseEvent) => {
+    event.preventDefault();
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="navbar">
       {LINKS.map(({ id, title }) => (
-        <a id={id} href={`#${id}`}>
+        <a href={`#${id}`} onClick={handleClick(id)}>
           {title}
         </a>
       ))}
@@ -69,8 +75,8 @@ type ProfileBoxProps = {
 
 const ProfileBox = ({ id, title, content }: ProfileBoxProps) => {
   return (
-    <div className="container">
-      <div className="profile-box" id={id}>
+    <div className="container" id={id}>
+      <div className="profile-box">
         <h1>{title}</h1>
         {content.map((item, indexItem) => (
           <>
