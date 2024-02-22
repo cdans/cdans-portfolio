@@ -11,7 +11,11 @@ const NavigationBar = () => {
 const Summary = () => {
   return (
     <div id="summary">
-      <h1>Christoph</h1>
+      <div className="header">
+        <h1 className="header-title">
+          CHRISTOPH DANSARD<span className="tm">TM</span>
+        </h1>
+      </div>
       <p>
         I am a passionate and driven student at the Technical University Munich
         with a strong interest in software engineering and product development.

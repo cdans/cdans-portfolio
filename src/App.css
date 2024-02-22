@@ -114,3 +114,18 @@ body {
   background-color: #e0dab8;
   color: #de5e24;
 }
+
+.header {
+  text-align: center;
+}
+
+.header-title {
+  color: #ffffff;
+  text-shadow: 3px 3px 0 #000; /* Gives a shadow effect to the text */
+  font-size: 4em; /* Adjust size as needed */
+}
+
+.tm {
+  font-size: 0.3em; /* Smaller font size for trademark symbol */
+  vertical-align: super;
+}
