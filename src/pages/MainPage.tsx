@@ -30,9 +30,7 @@ const Summary = () => {
   return (
     <div className="container">
       <div id="summary">
-        <div className="header">
-          <h1 className="header-title">CHRISTOPH DANSARD</h1>
-        </div>
+        <h1 className="header-title">CHRISTOPH DANSARD</h1>
         <p>
           I am a passionate and driven student at the Technical University
           Munich with a strong interest in software engineering and product

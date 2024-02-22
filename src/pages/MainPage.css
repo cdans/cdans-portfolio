@@ -5,10 +5,6 @@
   align-items: center;
 }
 
-.header {
-  text-align: center;
-}
-
 .header-title {
   color: #ffffff;
   text-shadow: 3px 3px 0 #000; /* Gives a shadow effect to the text */
