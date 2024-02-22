@@ -1,5 +1,7 @@
 import "./App.css";
 
+import { Analytics } from "@vercel/analytics/react";
+
 const NavigationBar = () => {
   return (
     <div className="navbar">
@@ -130,6 +132,7 @@ const Profile = () => {
 const App = () => {
   return (
     <>
+      <Analytics />
       <NavigationBar />
       <div className="content">
         <Summary />
