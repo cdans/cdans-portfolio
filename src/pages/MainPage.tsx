@@ -36,7 +36,6 @@ const Summary = () => {
           <span>Product Manager</span>
           <span>Startup Enthusiast</span>
         </div>
-        <hr />
         <p>
           Experienced software engineer and product manager with a passion for
           innovation and startups. Expertise in conceptualizing, developing, and
