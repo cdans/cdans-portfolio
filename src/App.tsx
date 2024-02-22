@@ -8,6 +8,7 @@ import { MainPage } from "./pages/MainPage";
 export const App = () => {
   return (
     <>
+      <div className="background"></div>
       <Analytics />
       <SpeedInsights />
       <MainPage />
