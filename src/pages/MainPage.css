@@ -49,6 +49,27 @@
   margin: 12px;
 }
 
+#summary hr {
+  border-color: #de5e24;
+  margin: 20px 0;
+}
+
+.summary-points {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.summary-points span {
+  font-weight: bold;
+  padding: 10px 20px;
+  background-color: #de5e24;
+  color: #fff;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
 .navbar {
   position: sticky;
   top: 0;

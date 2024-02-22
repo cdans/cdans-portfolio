@@ -31,13 +31,19 @@ const Summary = () => {
     <div className="container">
       <div id="summary">
         <h1 className="header-title">CHRISTOPH DANSARD</h1>
+        <div className="summary-points">
+          <span>Software Engineer</span>
+          <span>Product Manager</span>
+          <span>Startup Enthusiast</span>
+        </div>
+        <hr />
         <p>
-          I am a passionate and driven student at the Technical University
-          Munich with a strong interest in software engineering and product
-          development. I have a proven track record of working in
-          high-performing teams and delivering high-quality software products. I
-          am seeking opportunities to further develop my technical skills and
-          contribute to innovative projects.
+          Experienced software engineer and product manager with a passion for
+          innovation and startups. Expertise in conceptualizing, developing, and
+          deploying software solutions to drive user value. Proven track record
+          of successful collaboration with cross-functional teams and companies
+          to meet user needs and achieve business objectives. Constantly seeking
+          new challenges to make a positive impact through innovative solutions.
         </p>
         <div id="links">
           <a
