@@ -12,7 +12,6 @@ body {
 }
 
 body {
-  height: 100%;
   background-image: url("./assets/mario.gif"), url("./assets/ground.png"),
     url("./assets/bushes.png"), url("./assets/back.png");
   background-color: #f8e0b0;
@@ -38,12 +37,16 @@ body {
   }
 }
 
+.content {
+  padding: 40px;
+}
+
 .navbar {
   position: sticky;
   top: 0;
   display: flex;
   justify-content: space-around;
-  background-color: #6a8f7d;
+  background-color: #de5e24;
   color: #e0dab8;
   padding: 10px 0;
   font-family: "Press Start 2P";
@@ -58,4 +61,22 @@ body {
 
 .navbar a:hover {
   color: #f4f3ee;
+}
+
+.profile-box {
+  background-color: #de5e24;
+  color: #e0dab8;
+  padding: 20px;
+  border-radius: 2px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.profile-box h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-box p {
+  margin-bottom: 10px;
 }
