@@ -67,6 +67,16 @@ body {
   margin-bottom: 60px;
 }
 
+#summary #links {
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+}
+
+#summary #links a {
+  margin: 0 12px;
+}
+
 .profile-box {
   background-color: #de5e24;
   color: #e0dab8;
@@ -83,8 +93,24 @@ body {
 .profile-box h1 {
   text-align: center;
   margin-bottom: 20px;
+  text-shadow: 3px 3px #561b00;
 }
 
 .profile-box p {
   margin-bottom: 12px;
+}
+
+.button {
+  background-color: #de5e24;
+  color: #e0dab8;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #e0dab8;
+  color: #de5e24;
 }

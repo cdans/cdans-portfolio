@@ -22,6 +22,27 @@ const Summary = () => {
         further develop my technical skills and contribute to innovative
         projects.
       </p>
+      <div id="links">
+        <a
+          className="button"
+          href="https://www.linkedin.com/in/christoph-dansard-212293161/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+        <a className="button" href="mailto:ch.dansard@gmail.com">
+          Email
+        </a>
+        <a
+          className="button"
+          href="https://github.com/cdans"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+      </div>
     </div>
   );
 };
