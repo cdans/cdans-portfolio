@@ -12,7 +12,7 @@ const NavigationBar = () => {
 
 const Summary = () => {
   return (
-    <div>
+    <div id="summary">
       <h1>Christoph</h1>
       <p>
         I am a passionate and driven student at the Technical University Munich
@@ -36,8 +36,13 @@ const ProfileBox = ({ id, title, content }: ProfileBoxProps) => {
   return (
     <div className="profile-box" id={id}>
       <h1>{title}</h1>
-      {content.map((item) => (
-        <p id="item">{item}</p>
+      {content.map((item, indexItem) => (
+        <>
+          {item.split("\n").map((line, indexLine) => (
+            <p key={indexLine}>{line}</p>
+          ))}
+          {indexItem != content.length - 1 && <hr />}
+        </>
       ))}
     </div>
   );
@@ -50,9 +55,9 @@ const Profile = () => {
         id="education"
         title="Education"
         content={[
-          "Master of Science in Information Systems at Technical University Munich (April 2023 - present)",
-          "Bachelor of Science in Information Systems at University of Münster (October 2017 - April 2021)",
-          "High School Diploma at Stiftung Louisenlund (August 2011 - June 2017)",
+          "Master of Science in Information Systems at Technical University Munich\n(April 2023 - present)",
+          "Bachelor of Science in Information Systems at University of Münster\n(October 2017 - April 2021)",
+          "High School Diploma at Stiftung Louisenlund\n(August 2011 - June 2017)",
         ]}
       />
 
@@ -60,12 +65,12 @@ const Profile = () => {
         id="experience"
         title="Working Experience"
         content={[
-          "Product Engineering Working Student at Ivy (October 2023 - present)",
-          "Software Engineer at Forget Finance (August 2021 - September 2023)",
-          "Bachelor Student at Echometer (January 2021 - April 2021)",
-          "Product Intern at Flaschenpost (September 2020 - November 2020)",
-          "Product Intern at Compeon (February 2020 - April 2020)",
-          "Quality Working Student at Thalia (March 2019 - August 2019)",
+          "Product Engineering Working Student at Ivy\n(October 2023 - present)",
+          "Software Engineer at Forget Finance\n(August 2021 - September 2023)",
+          "Bachelor Student at Echometer\n(January 2021 - April 2021)",
+          "Product Intern at Flaschenpost\n(September 2020 - November 2020)",
+          "Product Intern at Compeon\n(February 2020 - April 2020)",
+          "Quality Working Student at Thalia\n(March 2019 - August 2019)",
         ]}
       />
 
@@ -83,7 +88,7 @@ const Profile = () => {
       <ProfileBox
         id="engagement"
         title="Extracurricular Engagement"
-        content={["Project Mentor at TechLabs Berlin (April 2022 - present)"]}
+        content={["Project Mentor at TechLabs Berlin\n(April 2022 - present)"]}
       />
 
       <ProfileBox
