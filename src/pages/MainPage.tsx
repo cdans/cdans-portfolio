@@ -1,5 +1,7 @@
 import "./MainPage.css";
 
+import { Fragment, useState } from "react";
+
 const LINKS = [
   { title: "Education", id: "education" },
   { title: "Experience", id: "experience" },
@@ -74,18 +76,31 @@ type ProfileBoxProps = {
 };
 
 const ProfileBox = ({ id, title, content }: ProfileBoxProps) => {
+  const [showMore, setShowMore] = useState(false);
+
+  const handleShowMore = () => {
+    setShowMore(true);
+  };
+
+  const visibleContent = showMore ? content : content.slice(0, 3);
+
   return (
     <div className="container" id={id}>
       <div className="profile-box">
         <h1>{title}</h1>
-        {content.map((item, indexItem) => (
-          <>
+        {visibleContent.map((item, indexItem) => (
+          <Fragment key={indexItem}>
             {item.split("\n").map((line, indexLine) => (
               <p key={indexLine}>{line}</p>
             ))}
-            {indexItem != content.length - 1 && <hr />}
-          </>
+            {indexItem !== visibleContent.length - 1 && <hr />}
+          </Fragment>
         ))}
+        {!showMore && content.length > 3 && (
+          <a className="show-more" onClick={handleShowMore}>
+            Show more
+          </a>
+        )}
       </div>
     </div>
   );
