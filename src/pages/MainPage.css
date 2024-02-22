@@ -62,8 +62,9 @@
   align-items: center;
   max-width: 200px;
   padding: 10px 20px;
-  background-color: #de5e24;
-  color: #fff;
+  background-color: #e0dab8;
+  color: #de5e24;
+  border: 1px solid #de5e24;
   border-radius: 2px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
