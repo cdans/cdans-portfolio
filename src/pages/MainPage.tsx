@@ -1,3 +1,5 @@
+import "./MainPage.css";
+
 const LINKS = [
   { title: "Education", id: "education" },
   { title: "Experience", id: "experience" },
