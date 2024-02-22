@@ -1,49 +1,59 @@
+const LINKS = [
+  { title: "Education", id: "education" },
+  { title: "Experience", id: "experience" },
+  { title: "Skills", id: "skills" },
+];
+
 const NavigationBar = () => {
   return (
     <div className="navbar">
-      <a href="#education">Education</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
+      {LINKS.map(({ id, title }) => (
+        <a id={id} href={`#${id}`}>
+          {title}
+        </a>
+      ))}
     </div>
   );
 };
 
 const Summary = () => {
   return (
-    <div id="summary">
-      <div className="header">
-        <h1 className="header-title">
-          CHRISTOPH DANSARD<span className="tm">TM</span>
-        </h1>
-      </div>
-      <p>
-        I am a passionate and driven student at the Technical University Munich
-        with a strong interest in software engineering and product development.
-        I have a proven track record of working in high-performing teams and
-        delivering high-quality software products. I am seeking opportunities to
-        further develop my technical skills and contribute to innovative
-        projects.
-      </p>
-      <div id="links">
-        <a
-          className="button"
-          href="https://www.linkedin.com/in/christoph-dansard-212293161/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
-        </a>
-        <a className="button" href="mailto:ch.dansard@gmail.com">
-          Email
-        </a>
-        <a
-          className="button"
-          href="https://github.com/cdans"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
+    <div className="container">
+      <div id="summary">
+        <div className="header">
+          <h1 className="header-title">
+            CHRISTOPH DANSARD<span className="tm">TM</span>
+          </h1>
+        </div>
+        <p>
+          I am a passionate and driven student at the Technical University
+          Munich with a strong interest in software engineering and product
+          development. I have a proven track record of working in
+          high-performing teams and delivering high-quality software products. I
+          am seeking opportunities to further develop my technical skills and
+          contribute to innovative projects.
+        </p>
+        <div id="links">
+          <a
+            className="button"
+            href="https://www.linkedin.com/in/christoph-dansard-212293161/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+          <a className="button" href="mailto:ch.dansard@gmail.com">
+            Email
+          </a>
+          <a
+            className="button"
+            href="https://github.com/cdans"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -57,16 +67,18 @@ type ProfileBoxProps = {
 
 const ProfileBox = ({ id, title, content }: ProfileBoxProps) => {
   return (
-    <div className="profile-box" id={id}>
-      <h1>{title}</h1>
-      {content.map((item, indexItem) => (
-        <>
-          {item.split("\n").map((line, indexLine) => (
-            <p key={indexLine}>{line}</p>
-          ))}
-          {indexItem != content.length - 1 && <hr />}
-        </>
-      ))}
+    <div className="container">
+      <div className="profile-box" id={id}>
+        <h1>{title}</h1>
+        {content.map((item, indexItem) => (
+          <>
+            {item.split("\n").map((line, indexLine) => (
+              <p key={indexLine}>{line}</p>
+            ))}
+            {indexItem != content.length - 1 && <hr />}
+          </>
+        ))}
+      </div>
     </div>
   );
 };
@@ -106,12 +118,6 @@ const Profile = () => {
           "Datawarehousing with SQL and NoSQL databases",
           "Familiarity with Kotlin and Java",
         ]}
-      />
-
-      <ProfileBox
-        id="engagement"
-        title="Extracurricular Engagement"
-        content={["Project Mentor at TechLabs Berlin\n(April 2022 - present)"]}
       />
 
       <ProfileBox
