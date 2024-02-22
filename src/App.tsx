@@ -70,19 +70,20 @@ const Profile = () => {
       />
 
       <ProfileBox
-        id="engagement"
-        title="Extracurricular Engagement"
-        content={["Project Mentor at TechLabs Berlin (April 2022 - present)"]}
-      />
-
-      <ProfileBox
         id="skills"
         title="Technical Skills"
         content={[
-          "Proficient in Swift",
-          "Experience with React Native",
-          "Familiarity with JavaScript and Java",
+          "Proficient in TypeScript, JavaScript, and Python",
+          "Much experience with React (Native) and Node.js",
+          "Datawarehousing with SQL and NoSQL databases",
+          "Familiarity with Kotlin and Java",
         ]}
+      />
+
+      <ProfileBox
+        id="engagement"
+        title="Extracurricular Engagement"
+        content={["Project Mentor at TechLabs Berlin (April 2022 - present)"]}
       />
 
       <ProfileBox
