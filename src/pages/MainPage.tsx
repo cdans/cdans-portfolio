@@ -143,18 +143,6 @@ const Profile = () => {
           "Familiarity with Kotlin and Java",
         ]}
       />
-
-      <ProfileBox
-        id="hobbies"
-        title="Hobbies"
-        content={[
-          "Cooking",
-          "Soccer",
-          "Field Hockey",
-          "Table Tennis",
-          "Sailing",
-        ]}
-      />
     </div>
   );
 };
