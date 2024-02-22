@@ -47,11 +47,20 @@ body {
   padding: 10px 20px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
   text-decoration: none;
+  box-shadow: 3px 3px #561b00;
 }
 
 .button:hover {
   background-color: #e0dab8;
   color: #de5e24;
+  box-shadow: 3px 3px #b1ad91;
+}
+
+.button:active {
+  position: relative;
+  top: 1px;
+  left: 1px;
+  box-shadow: -3px -3px #b1ad91;
 }
