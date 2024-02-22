@@ -8,6 +8,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f8e0b0;
+  overflow-x: hidden;
 }
 
 h1 {
