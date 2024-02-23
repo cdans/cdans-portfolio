@@ -73,13 +73,18 @@
 .navbar {
   position: sticky;
   top: 0;
+  background-color: #de5e24;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Adds depth with a shadow */
+}
+
+.navbar-content {
   display: flex;
   justify-content: space-around;
-  background-color: #de5e24;
   color: #e0dab8;
   padding: 10px 0;
   font-family: "Press Start 2P";
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Adds depth with a shadow */
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .navbar a {

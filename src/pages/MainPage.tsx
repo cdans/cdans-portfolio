@@ -17,11 +17,13 @@ const NavigationBar = () => {
 
   return (
     <div className="navbar">
-      {LINKS.map(({ id, title }) => (
-        <a href={`#${id}`} onClick={handleClick(id)}>
-          {title}
-        </a>
-      ))}
+      <div className="navbar-content">
+        {LINKS.map(({ id, title }) => (
+          <a href={`#${id}`} onClick={handleClick(id)}>
+            {title}
+          </a>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,6 +1,4 @@
 #root {
-  max-width: 1280px;
-  text-align: center;
 }
 
 html,
@@ -43,6 +41,9 @@ body {
 
 .content {
   padding: 0 40px;
+  max-width: 1280px;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .button {
