@@ -1,6 +1,8 @@
 import "./MainPage.css";
 
-import { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
+
+import Sketch from "react-p5";
 
 const LINKS = [
   { title: "Education", id: "education" },
@@ -149,11 +151,72 @@ const Profile = () => {
   );
 };
 
+interface PendulumProps {
+  length: number;
+  gravity: number;
+}
+
+const Pendulum = ({ length, gravity }: PendulumProps) => {
+  let angle = Math.PI / 4;
+  let angleV = 0;
+  const dt = 0.1; // time step
+
+  const setup = (p5: any, canvasParentRef: Element) => {
+    p5.createCanvas(500, 500).parent(canvasParentRef);
+  };
+
+  const draw = (p5: any) => {
+    const angleA = ((-1 * gravity) / length) * Math.sin(angle);
+    angleV += angleA * dt;
+    angle += angleV * dt;
+
+    angleV *= 0.99; // damping
+
+    p5.background(255);
+    const x = length * 200 * Math.sin(angle);
+    const y = length * 200 * Math.cos(angle);
+
+    p5.translate(p5.width / 2, p5.height / 2);
+    p5.line(0, 0, x, y);
+    p5.ellipse(x, y, 20, 20);
+  };
+
+  return <Sketch setup={setup} draw={draw} />;
+};
+
+const Game = () => {
+  const [length, setLength] = useState(1);
+  const [gravity, setGravity] = useState(1);
+
+  return (
+    <div>
+      <Pendulum length={length} gravity={gravity} />
+      <input
+        type="range"
+        min="0.1"
+        max="2"
+        step="0.1"
+        value={length}
+        onChange={(e) => setLength(parseFloat(e.target.value))}
+      />
+      <input
+        type="range"
+        min="0.1"
+        max="2"
+        step="0.1"
+        value={gravity}
+        onChange={(e) => setGravity(parseFloat(e.target.value))}
+      />
+    </div>
+  );
+};
+
 export const MainPage = () => {
   return (
     <>
       <NavigationBar />
       <div className="content">
+        <Game />
         <Summary />
         <Profile />
       </div>
