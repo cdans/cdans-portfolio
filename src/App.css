@@ -102,3 +102,49 @@ body {
   left: 1px;
   box-shadow: -3px -3px #b1ad91;
 }
+
+.obstacle {
+  position: fixed;
+  bottom: 22px;
+  width: 32px;
+  height: 32px;
+  background-image: url("./assets/goomba.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: moveLeft 2s linear;
+}
+
+@keyframes moveLeft {
+  from {
+    left: 100%;
+  }
+  to {
+    left: -50px;
+  }
+}
+
+.game-over {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.score {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.game-over button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
