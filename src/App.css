@@ -19,7 +19,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  bottom: -22px;
+  bottom: 0;
   right: 0;
   z-index: -1;
 }
@@ -28,8 +28,8 @@ body {
   position: fixed;
   left: 30%;
   bottom: 22px;
-  width: 64px; /* adjust based on your Mario sprite size */
-  height: 64px; /* adjust based on your Mario sprite size */
+  width: 64px;
+  height: 64px;
   background-image: url("./assets/mario.gif");
   background-repeat: no-repeat;
   background-size: contain;
@@ -41,16 +41,16 @@ body {
 
 @keyframes back {
   0% {
-    background-position: left 30% bottom 22px, left 0px bottom 0px,
-      left 0px bottom 22px, left 0px bottom 0px;
+    background-position: left 0px bottom 0px, left 0px bottom 22px,
+      left 0px bottom 0px;
   }
   50% {
-    background-position: left 50% bottom 22px, left -816px bottom 0px,
-      left -508px bottom 22px, left -256px bottom 0px;
+    background-position: left -816px bottom 0px, left -508px bottom 22px,
+      left -256px bottom 0px;
   }
   100% {
-    background-position: left 30% bottom 22px, left -1632px bottom 0px,
-      left -1016px bottom 22px, left -512px bottom 0px;
+    background-position: left -1632px bottom 0px, left -1016px bottom 22px,
+      left -512px bottom 0px;
   }
 }
 
