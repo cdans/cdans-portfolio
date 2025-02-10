@@ -6,39 +6,67 @@ import { useEffect, useRef, useState } from "react";
 
 import { MainPage } from "./pages/MainPage";
 
-export const App = () => {
-  const backgroundRef = useRef<HTMLDivElement>(null);
-  const marioRef = useRef<HTMLDivElement>(null);
-  const isJumping = useRef(false);
-  const [gameOver, setGameOver] = useState(false);
-  const [score, setScore] = useState(0);
+type GameState = "not_started" | "started" | "game_over";
 
-  // Spawn obstacles
+const useObstacleSpawner = (
+  gameState: GameState,
+  setScore: (cb: (prev: number) => number) => void
+) => {
   useEffect(() => {
-    if (gameOver) return;
+    if (gameState !== "started") return;
+
+    const controller = new AbortController();
+    const signal = controller.signal;
 
     const spawnObstacle = () => {
       const obstacle = document.createElement("div");
       obstacle.classList.add("obstacle");
       document.body.appendChild(obstacle);
 
-      // Remove obstacle after animation
       obstacle.addEventListener("animationend", () => {
         obstacle.remove();
-        setScore((prev) => prev + 1);
+        if (gameState === "started") {
+          setScore((prev) => prev + 1);
+        }
       });
+
+      const randomBigInterval = Math.floor(Math.random() * 2000) + 1000;
+      const randomSmallInterval = Math.floor(Math.random() * 100) + 30;
+      const randomInterval =
+        Math.random() < 0.7 ? randomBigInterval : randomSmallInterval;
+      console.log("🚀 / spawnObstacle / randomInterval:", randomInterval);
+
+      const timeoutPromise = new Promise((resolve) => {
+        setTimeout(resolve, randomInterval);
+      });
+
+      timeoutPromise
+        .then(() => {
+          if (!signal.aborted) {
+            spawnObstacle();
+          }
+        })
+        .catch(() => {});
     };
 
-    const spawnInterval = setInterval(() => {
-      spawnObstacle();
-    }, 2000); // Adjust timing as needed
+    spawnObstacle();
 
-    return () => clearInterval(spawnInterval);
-  }, [gameOver]);
+    return () => {
+      controller.abort();
+      document
+        .querySelectorAll(".obstacle")
+        .forEach((obstacle) => obstacle.remove());
+    };
+  }, [gameState, setScore]);
+};
 
-  // Collision detection
+const useCollisionDetection = (
+  marioRef: React.RefObject<HTMLDivElement>,
+  gameState: GameState,
+  setGameState: (state: GameState) => void
+) => {
   useEffect(() => {
-    if (gameOver) return;
+    if (gameState !== "started") return;
 
     const checkCollision = () => {
       const mario = marioRef.current?.getBoundingClientRect();
@@ -54,16 +82,23 @@ export const App = () => {
           mario.top < obstacleRect.bottom &&
           mario.bottom > obstacleRect.top
         ) {
-          setGameOver(true);
+          setGameState("game_over");
         }
       });
     };
 
     const gameLoop = setInterval(checkCollision, 10);
     return () => clearInterval(gameLoop);
-  }, [gameOver]);
+  }, [gameState, marioRef, setGameState]);
+};
 
-  // Jump handler
+const useJumpHandler = (
+  marioRef: React.RefObject<HTMLDivElement>,
+  gameState: GameState,
+  setGameState: (state: GameState) => void
+) => {
+  const isJumping = useRef(false);
+
   useEffect(() => {
     const preventSpaceScroll = (event: KeyboardEvent) => {
       if (event.code === "Space") {
@@ -72,10 +107,15 @@ export const App = () => {
     };
 
     const handleKeyPress = (event: KeyboardEvent) => {
-      if (event.code === "Space" && !gameOver) {
+      if (event.code === "Space") {
         event.preventDefault();
 
-        if (!isJumping.current && marioRef.current) {
+        if (gameState === "not_started") {
+          setGameState("started");
+          return;
+        }
+
+        if (gameState === "started" && !isJumping.current && marioRef.current) {
           isJumping.current = true;
           marioRef.current.classList.add("jump");
 
@@ -94,16 +134,41 @@ export const App = () => {
       window.removeEventListener("keydown", handleKeyPress);
       window.removeEventListener("keyup", preventSpaceScroll);
     };
-  }, [gameOver]);
+  }, [gameState, marioRef, setGameState]);
+
+  return isJumping;
+};
+
+export const App = () => {
+  const backgroundRef = useRef<HTMLDivElement>(null);
+  const marioRef = useRef<HTMLDivElement>(null);
+  const [gameState, setGameState] = useState<GameState>("not_started");
+  const [score, setScore] = useState(0);
+
+  useJumpHandler(marioRef, gameState, setGameState);
+  useObstacleSpawner(gameState, setScore);
+  useCollisionDetection(marioRef, gameState, setGameState);
 
   return (
     <>
       <div className="background" ref={backgroundRef}></div>
       <div className="mario" ref={marioRef}></div>
-      {gameOver && (
+      {gameState === "not_started" ? (
+        <div className="game-start">Press SPACE to start!</div>
+      ) : (
+        <div>Score: {score}</div>
+      )}
+      {gameState === "game_over" && (
         <div className="game-over">
           Game Over! Score: {score}
-          <button onClick={() => window.location.reload()}>Restart</button>
+          <button
+            onClick={() => {
+              setGameState("not_started");
+              setScore(0);
+            }}
+          >
+            Close
+          </button>
         </div>
       )}
       <Analytics />
