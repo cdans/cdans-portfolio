@@ -32,7 +32,14 @@ const Summary = () => {
   return (
     <div className="container">
       <div id="summary">
-        <h1 className="header-title">CHRISTOPH DANSARD</h1>
+        <h1
+          className="header-title"
+          style={{
+            textTransform: "uppercase",
+          }}
+        >
+          Christoph Dansard
+        </h1>
         <div className="summary-points">
           <span>Software Engineer</span>
           <span>Product Manager</span>
@@ -113,25 +120,26 @@ const Profile = () => {
   return (
     <div>
       <ProfileBox
-        id="education"
-        title="Education"
-        content={[
-          "Master of Science in Information Systems at Technical University Munich\n(April 2023 - present)",
-          "Bachelor of Science in Information Systems at University of Münster\n(October 2017 - April 2021)",
-          "High School Diploma at Stiftung Louisenlund\n(August 2011 - June 2017)",
-        ]}
-      />
-
-      <ProfileBox
         id="experience"
         title="Working Experience"
         content={[
-          "Product Engineering Working Student at Ivy\n(October 2023 - present)",
+          "Backend Engineer at Ivy\n(October 2023 - present)",
           "Software Engineer at Forget Finance\n(August 2021 - September 2023)",
           "Bachelor Student at Echometer\n(January 2021 - April 2021)",
           "Product Intern at Flaschenpost\n(September 2020 - November 2020)",
           "Product Intern at Compeon\n(February 2020 - April 2020)",
           "Quality Working Student at Thalia\n(March 2019 - August 2019)",
+        ]}
+      />
+
+      <ProfileBox
+        id="education"
+        title="Education"
+        content={[
+          "Master of Science in Information Systems at Technical University Munich\n(April 2023 - present)",
+          "Exchange Semester at City University of Hong Kong\n(August 2024 - December 20224)",
+          "Bachelor of Science in Information Systems at University of Münster\n(October 2017 - April 2021)",
+          "High School Diploma at Stiftung Louisenlund\n(August 2011 - June 2017)",
         ]}
       />
 
